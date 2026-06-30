@@ -1,13 +1,13 @@
 import { Component, signal, computed } from '@angular/core';
-import { Header } from './components/header/header';
-import { RestaurantList } from './components/restaurant-list/restaurant-list';
-import { Restaurant } from './models/restaurant';
+import { Header } from '../header/header';
+import { RestaurantList } from '../restaurant-list/restaurant-list';
+import { Restaurant } from '../../models/restaurant';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-app',
   imports: [Header, RestaurantList],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   restaurants = signal<Restaurant[]>([

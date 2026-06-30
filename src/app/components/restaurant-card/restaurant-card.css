@@ -1,0 +1,50 @@
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.card__name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0 0 0.4rem;
+}
+
+.card__district {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0 0 0.3rem;
+}
+
+.card__specialty {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0 0 1rem;
+  font-style: italic;
+}
+
+.card__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.card__score {
+  font-size: 0.9rem;
+  color: #444;
+  font-weight: 600;
+}
+
+.card__score--empty {
+  color: #aaa;
+  font-style: italic;
+  font-weight: normal;
+}

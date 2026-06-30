@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card__body">
+    <h3 class="card__name">{{ restaurant().name }}</h3>
+    <p class="card__district">{{ restaurant().district }}</p>
+    <p class="card__specialty">{{ restaurant().specialty }}</p>
+    <div class="card__rating">
+      <app-star-rating
+        [currentRating]="restaurant().currentRating"
+        (ratingChanged)="onRatingChanged($event)">
+      </app-star-rating>
+      @if (restaurant().currentRating > 0) {
+        <span class="card__score">({{ restaurant().currentRating }}/5)</span>
+      } @else {
+        <span class="card__score card__score--empty">Cliquez !</span>
+      }
+    </div>
+  </div>
+</div>

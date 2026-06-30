@@ -1,59 +1,89 @@
-# DelicesDeDoualaTp
+# 🍽️ Délices de Douala
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.1.
+Application Angular de notation de restaurants camerounais, développée dans le cadre du **Angular Talent Lab**.
 
-## Development server
+## 📖 Description
 
-To start a local development server, run:
+Cette application permet de consulter une liste de 6 restaurants de Douala et de les noter de 1 à 5 étoiles. Le header affiche en temps réel le nombre de restaurants notés ainsi que la moyenne globale des notes.
+
+## ✨ Fonctionnalités
+
+- Affichage d'une grille de 6 restaurants avec leur quartier et spécialité
+- Notation interactive par étoiles (1 à 5)
+- Retrait de note possible en cliquant sur la même étoile
+- Header sticky avec compteur de restaurants notés
+- Affichage dynamique de la moyenne des notes (visible dès la première notation)
+
+## 🏗️ Architecture
+
+```
+src/app/
+├── components/
+│   ├── header/           # Header sticky avec stats dynamiques
+│   ├── restaurant-list/  # Grille de cartes restaurants
+│   ├── restaurant-card/  # Carte individuelle d'un restaurant
+│   └── star-rating/      # Composant de notation par étoiles
+├── models/
+│   └── restaurant.ts     # Interface Restaurant
+├── app.ts                # Composant racine (signals + computed)
+└── app.routes.ts
+```
+
+## 🔧 Concepts Angular utilisés
+
+| Concept | Usage |
+|---|---|
+| `signal()` | État réactif de la liste des restaurants |
+| `computed()` | Calcul du nombre noté et de la moyenne |
+| `input()` / `input.required()` | Communication parent → enfant |
+| `output()` | Communication enfant → parent (événements de notation) |
+| `@for` | Rendu de la liste avec `track` |
+| `@if` | Affichage conditionnel (moyenne, score) |
+
+## 🍲 Restaurants disponibles
+
+| Restaurant | Quartier | Spécialité |
+|---|---|---|
+| Le Calao Doré | Akwa | Ndolé aux crevettes |
+| Chez Madame Ngono | Bonapriso | Eru aux pieds de bœuf |
+| La Fourchette Camerounaise | Bonanjo | Poulet DG |
+| Saveurs du Wouri | Bonamoussadi | Poisson braisé |
+| L'Akwa Gourmand | Akwa | Bobolo et sauce arachide |
+| Le Royal de Bali | Bali | Koki et plantain |
+
+## 🚀 Démarrage
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Ouvrir [http://localhost:4200](http://localhost:4200) dans le navigateur.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🧪 Tests
 
 ```bash
-ng generate component component-name
+# Tests unitaires
+ng test
+
+# Tests end-to-end
+ng e2e
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## 📦 Build
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Les artifacts de build sont générés dans le dossier `dist/`.
 
-## Running unit tests
+## 🛠️ Stack technique
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Angular** 22
+- **TypeScript**
+- **Vitest** (tests unitaires)
+- **Angular CLI** 22.0.1

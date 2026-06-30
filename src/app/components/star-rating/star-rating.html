@@ -1,0 +1,13 @@
+<div class="stars">
+  @for (star of stars; track star) {
+    <span
+      class="star"
+      [class.star--active]="isActive(star)"
+      (mouseenter)="hoveredStar.set(star)"
+      (mouseleave)="hoveredStar.set(0)"
+      (click)="onStarClick(star)"
+      [attr.aria-label]="'Noter ' + star + ' étoiles sur 5'"
+      role="button"
+    >★</span>
+  }
+</div>

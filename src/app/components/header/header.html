@@ -1,0 +1,9 @@
+<header>
+    <h1 class="header__logo">Délices de Douala</h1>
+    <div class="header__stats">
+        <p class="header__rating">★ {{ ratedCount() }} / 6 restaurants notés</p>
+        @if (ratedCount() > 0) {
+            <p class="header__average">Moyenne : ★ {{ averageRating().toFixed(1) }} / 5</p>
+        }
+    </div>
+</header>
