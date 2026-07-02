@@ -1,89 +1,39 @@
-# 🍽️ Délices de Douala
+# Délices de Douala — Notation de restaurants
 
-Application Angular de notation de restaurants camerounais, développée dans le cadre du **Angular Talent Lab**.
+> Application de notation de restaurants camerounais à Douala.
+> Projet réalisé dans le cadre d'Angular Talent Lab 2026.
 
-## 📖 Description
+## Captures d'écran
 
-Cette application permet de consulter une liste de 6 restaurants de Douala et de les noter de 1 à 5 étoiles. Le header affiche en temps réel le nombre de restaurants notés ainsi que la moyenne globale des notes.
+### Desktop
+![Desktop screenshot](./screenshots/desktop.png)
 
-## ✨ Fonctionnalités
+### Mobile
+![Mobile screenshot](./screenshots/mobile.png)
 
-- Affichage d'une grille de 6 restaurants avec leur quartier et spécialité
-- Notation interactive par étoiles (1 à 5)
-- Retrait de note possible en cliquant sur la même étoile
-- Header sticky avec compteur de restaurants notés
-- Affichage dynamique de la moyenne des notes (visible dès la première notation)
+## Technologies utilisées
+  - Angular 22.0.1 - TypeScript 5.9+ - npm 11.17.0
 
-## 🏗️ Architecture
+## Fonctionnalités
+  - ✅ Layout responsive (Desktop / Tablette / Mobile)
+  - ✅ Liste de 6 restaurants de Douala
+  - ✅ Notation par étoiles (1 à 5) par restaurant
+  - ✅ Retrait de note en cliquant sur la même étoile
+  - ✅ Compteur de restaurants notés en temps réel
+  - ✅ Moyenne globale des notes calculée dynamiquement
+  - ✅ Header sticky avec statistiques de notation
 
-```
-src/app/
-├── components/
-│   ├── header/           # Header sticky avec stats dynamiques
-│   ├── restaurant-list/  # Grille de cartes restaurants
-│   ├── restaurant-card/  # Carte individuelle d'un restaurant
-│   └── star-rating/      # Composant de notation par étoiles
-├── models/
-│   └── restaurant.ts     # Interface Restaurant
-├── app.ts                # Composant racine (signals + computed)
-└── app.routes.ts
-```
-
-## 🔧 Concepts Angular utilisés
-
-| Concept | Usage |
-|---|---|
-| `signal()` | État réactif de la liste des restaurants |
-| `computed()` | Calcul du nombre noté et de la moyenne |
-| `input()` / `input.required()` | Communication parent → enfant |
-| `output()` | Communication enfant → parent (événements de notation) |
-| `@for` | Rendu de la liste avec `track` |
-| `@if` | Affichage conditionnel (moyenne, score) |
-
-## 🍲 Restaurants disponibles
-
-| Restaurant | Quartier | Spécialité |
-|---|---|---|
-| Le Calao Doré | Akwa | Ndolé aux crevettes |
-| Chez Madame Ngono | Bonapriso | Eru aux pieds de bœuf |
-| La Fourchette Camerounaise | Bonanjo | Poulet DG |
-| Saveurs du Wouri | Bonamoussadi | Poisson braisé |
-| L'Akwa Gourmand | Akwa | Bobolo et sauce arachide |
-| Le Royal de Bali | Bali | Koki et plantain |
-
-## 🚀 Démarrage
+## Lancer le projet en local
 
 ```bash
-# Installer les dépendances
+git clone https://github.com/[VOTRE_USERNAME]/delices-de-douala-tp.git
+cd delices-de-douala-tp
 npm install
-
-# Lancer le serveur de développement
-ng serve
+npm start --open
 ```
 
-Ouvrir [http://localhost:4200](http://localhost:4200) dans le navigateur.
+Ouvrir [http://localhost:4200](http://localhost:4200).
 
-## 🧪 Tests
-
-```bash
-# Tests unitaires
-ng test
-
-# Tests end-to-end
-ng e2e
-```
-
-## 📦 Build
-
-```bash
-ng build
-```
-
-Les artifacts de build sont générés dans le dossier `dist/`.
-
-## 🛠️ Stack technique
-
-- **Angular** 22
-- **TypeScript**
-- **Vitest** (tests unitaires)
-- **Angular CLI** 22.0.1
+## Auteur
+ATL 2026 — TP notation — Délices de Douala
+Nlend Max — Apprenant Angular Talent Lab 2026 — Cohorte Douala
