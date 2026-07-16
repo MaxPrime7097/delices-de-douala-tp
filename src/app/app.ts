@@ -6,9 +6,11 @@ import { PlatCard } from './components/plat-card/plat-card';
 import { Commande } from './components/commande/commande';
 import { Plat } from './services/plats';
 import { LigneCommande } from './models/plats';
+import { Inscription } from './components/inscription/inscription';
+
 @Component({
   selector: 'app-root',
-  imports: [Header, RestaurantList, PlatCard, Commande],
+  imports: [Header, RestaurantList, PlatCard, Commande, Inscription],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

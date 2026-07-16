@@ -1,0 +1,37 @@
+<section class="inscription-section">
+  <h2>Inscription</h2>
+
+  <form class="form">
+    <div class="form__group">
+      <input
+        type="text"
+        name="nom"
+        placeholder="Nom du client"
+        [(ngModel)]="nom"
+        [class.form__input--error]="!nom.trim()"
+      />
+      @if (!nom.trim()) {
+        <small class="erreur">Le nom est obligatoire.</small>
+      }
+    </div>
+    <button type="button" class="form__btn" (click)="enregistrer()">
+      {{ enEdition() ? 'Modifier' : 'Ajouter' }}
+    </button>
+  </form>
+
+  @if (clients().length === 0) {
+    <p class="liste-vide">Aucun client inscrit.</p>
+  } @else {
+    <ul class="liste">
+      @for (client of clients(); track $index; let i = $index) {
+        <li class="ligne">
+          <span class="ligne__nom">{{ client }}</span>
+          <span class="ligne__actions">
+            <button type="button" class="btn-modifier" (click)="modifier(i)">Modifier</button>
+            <button type="button" class="btn-supprimer" (click)="supprimer(i)">Supprimer</button>
+          </span>
+        </li>
+      }
+    </ul>
+  }
+</section>
