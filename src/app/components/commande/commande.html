@@ -1,0 +1,21 @@
+<section class="commande-section">
+  <h2>Ma commande</h2>
+  @if (commande().length > 0) {
+    <ul class="commande">
+      @for (ligne of commande(); track ligne.plat.id) {
+        <app-ligne-commande
+          [ligne]="ligne"
+          (incrementer)="incrementer.emit($event)"
+          (decrementer)="decrementer.emit($event)"
+          (supprimer)="supprimer.emit($event)"
+        />
+      }
+    </ul>
+    <div class="commande-total">
+      <span>Total : {{ total() | number:'1.0-0' }} FCFA</span>
+      <button class="vider-btn" (click)="vider.emit()">Vider la commande</button>
+    </div>
+  } @else {
+    <p class="commande-vide">Aucun plat sélectionné pour le moment.</p>
+  }
+</section>

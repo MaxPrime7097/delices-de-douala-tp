@@ -1,2 +1,10 @@
 <app-header [ratedCount]="ratedCount()" [averageRating]="averageRating()"></app-header>
 <app-restaurant-list [restaurants]="restaurants()" (restaurantRated)="onRestaurantRated($event)"></app-restaurant-list>
+<app-plat-card (platAjoute)="onPlatAjoute($event)"></app-plat-card>
+<app-commande
+  [commande]="commande()"
+  (incrementer)="onIncrementer($event)"
+  (decrementer)="onDecrementer($event)"
+  (supprimer)="onSupprimer($event)"
+  (vider)="onVider()"
+></app-commande>

@@ -1,0 +1,202 @@
+:host {
+  display: block;
+  padding: 2.5rem 1rem;
+  background: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.carte {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h2 {
+  color: #2c2c2c;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #2c2c2c;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.active {
+  background-color: indianred;
+  border-color: indianred;
+  color: #fff;
+}
+
+.plat-du-jour {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 0 auto 2rem;
+  max-width: 700px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid indianred;
+  text-align: center;
+}
+
+.plat-du-jour__label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: indianred;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.plat-du-jour__name {
+  margin: 0.25rem 0;
+  color: #2c2c2c;
+  font-weight: 700;
+}
+
+.plat-du-jour__price {
+  margin: 0;
+  color: indianred;
+  font-weight: 700;
+}
+
+.plats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card {
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  overflow: hidden;
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card__name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0;
+}
+
+.badge {
+  background-color: #f8d7da;
+  color: #842029;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  border: 1px solid #f5c2c7;
+}
+
+.card__categorie {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 0;
+}
+
+.card__prix {
+  font-size: 1rem;
+  font-weight: 700;
+  color: indianred;
+  margin: 0;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.card__dispo {
+  font-size: 0.85rem;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.card__dispo--off {
+  color: #aaa;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.card__btn {
+  padding: 0.4rem 0.9rem;
+  background-color: indianred;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
+}
+
+.card__btn:hover {
+  background-color: #b03030;
+}
+
+.is-disabled {
+  opacity: 0.65;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .plats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .btn-group {
+    gap: 0.5rem;
+  }
+
+  .plats-grid {
+    grid-template-columns: 1fr;
+  }
+}

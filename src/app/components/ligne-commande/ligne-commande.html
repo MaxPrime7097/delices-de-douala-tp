@@ -1,0 +1,13 @@
+<li class="ligne-commande">
+  <span class="nom">{{ ligne().plat.nom }}</span>
+
+  <div class="controles">
+    <button class="ctrl-btn" (click)="decrementer.emit(ligne().plat.id)">−</button>
+    <span class="quantite">{{ ligne().quantite }}</span>
+    <button class="ctrl-btn" (click)="incrementer.emit(ligne().plat.id)">+</button>
+  </div>
+
+  <span class="total">{{ ligne().plat.prix * ligne().quantite | number:'1.0-0' }} FCFA</span>
+
+  <button class="suppr-btn" (click)="supprimer.emit(ligne().plat.id)">✕</button>
+</li>

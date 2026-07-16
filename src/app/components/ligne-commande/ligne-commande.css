@@ -1,0 +1,63 @@
+.ligne-commande {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 0.85rem 1.25rem;
+  border-left: 4px solid indianred;
+  gap: 1rem;
+}
+
+.nom {
+  font-weight: 600;
+  color: #2c2c2c;
+  flex: 1;
+}
+
+.controles {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ctrl-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid indianred;
+  background: none;
+  color: indianred;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.ctrl-btn:hover {
+  background-color: indianred;
+  color: #fff;
+}
+
+.suppr-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.suppr-btn:hover {
+  color: indianred;
+}
+
+.total {
+  font-weight: 700;
+  color: indianred;
+  white-space: nowrap;
+}

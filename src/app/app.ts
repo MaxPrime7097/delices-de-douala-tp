@@ -2,10 +2,13 @@ import { Component, signal, computed } from '@angular/core';
 import { Header } from './components/header/header';
 import { RestaurantList } from './components/restaurant-list/restaurant-list';
 import { Restaurant } from './models/restaurant';
-
+import { PlatCard } from './components/plat-card/plat-card';
+import { Commande } from './components/commande/commande';
+import { Plat } from './services/plats';
+import { LigneCommande } from './models/plats';
 @Component({
   selector: 'app-root',
-  imports: [Header, RestaurantList],
+  imports: [Header, RestaurantList, PlatCard, Commande],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -31,5 +34,39 @@ export class App {
     this.restaurants.update(list =>
       list.map(r => r.id === event.id ? { ...r, currentRating: event.rating } : r)
     );
+  }
+
+  commande = signal<LigneCommande[]>([]);
+
+  onPlatAjoute(plat: Plat) {
+    this.commande.update((lignes) => {
+      const existing = lignes.find(l => l.plat.id === plat.id);
+      if (existing) {
+        return lignes.map(l => l.plat.id === plat.id ? { ...l, quantite: l.quantite + 1 } : l);
+      }
+      return [...lignes, { plat, quantite: 1 }];
+    });
+  }
+
+  onIncrementer(id: string) {
+    this.commande.update(lignes =>
+      lignes.map(l => l.plat.id === id ? { ...l, quantite: l.quantite + 1 } : l)
+    );
+  }
+
+  onDecrementer(id: string) {
+    this.commande.update(lignes =>
+      lignes
+        .map(l => l.plat.id === id ? { ...l, quantite: l.quantite - 1 } : l)
+        .filter(l => l.quantite > 0)
+    );
+  }
+
+  onSupprimer(id: string) {
+    this.commande.update(lignes => lignes.filter(l => l.plat.id !== id));
+  }
+
+  onVider() {
+    this.commande.set([]);
   }
 }
