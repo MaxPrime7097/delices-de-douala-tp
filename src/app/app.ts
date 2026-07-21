@@ -7,10 +7,11 @@ import { Commande } from './components/commande/commande';
 import { Plat } from './services/plats';
 import { LigneCommande } from './models/plats';
 import { Inscription } from './components/inscription/inscription';
+import { Connexion } from './components/connexion/connexion';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, RestaurantList, PlatCard, Commande, Inscription],
+  imports: [Header, RestaurantList, PlatCard, Commande, Inscription, Connexion],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

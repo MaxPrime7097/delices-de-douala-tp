@@ -1,0 +1,45 @@
+<section class="inscription-section">
+  <h2>Connexion</h2>
+
+  @if (success) {
+    <p class="success">✅ Connexion réussie ! Bienvenue.</p>
+  }
+
+  <form class="form-container" (ngSubmit)="soumettre()">
+    <div class="form-line">
+      <div class="form__group">
+        <label>Email <span class="required">*</span></label>
+        <input
+          type="email"
+          name="email"
+          placeholder="email@exemple.com"
+          [(ngModel)]="user.email"
+          [class.form__input--error]="submitted && !user.email.trim()"
+        />
+        @if (submitted && !user.email.trim()) {
+          <small class="erreur">L'email est obligatoire.</small>
+        }
+      </div>
+    </div>
+
+    <div class="form-line">
+      <div class="form__group">
+        <label>Mot de passe <span class="required">*</span></label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Mot de passe"
+          [(ngModel)]="user.password"
+          [class.form__input--error]="submitted && !user.password.trim()"
+        />
+        @if (submitted && !user.password.trim()) {
+          <small class="erreur">Le mot de passe est obligatoire.</small>
+        }
+      </div>
+    </div>
+
+    <button type="submit" class="btn" [disabled]="!formValid">
+      Se connecter
+    </button>
+  </form>
+</section>
