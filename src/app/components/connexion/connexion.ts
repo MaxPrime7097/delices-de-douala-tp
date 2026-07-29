@@ -1,25 +1,28 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { User } from '../../models/user';
 
 @Component({
   selector: 'app-connexion',
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './connexion.html',
   styleUrl: './connexion.css',
 })
 export class Connexion {
-  user: Pick<User, 'email' | 'password'> = { email: '', password: '' };
-  submitted = false;
-  success = false;
+  private readonly fb = inject(FormBuilder); 
+  
+  readonly loginForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+  });
 
-  get formValid(): boolean {
-    return !!this.user.email.trim() && !!this.user.password.trim();
-  }
+  get email()    
+    { return this.loginForm.controls.email; } 
+  get password() 
+    { return this.loginForm.controls.password; } 
 
-  soumettre(): void {
-    this.submitted = true;
-    if (!this.formValid) return;
-    this.success = true;
+  soumettre(): void { 
+    if (this.loginForm.invalid) return; 
+    console.log('Connexion :', this.loginForm.value); 
   }
 }

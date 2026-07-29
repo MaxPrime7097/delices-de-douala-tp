@@ -1,11 +1,7 @@
 <section class="inscription-section">
   <h2>Connexion</h2>
 
-  @if (success) {
-    <p class="success">✅ Connexion réussie ! Bienvenue.</p>
-  }
-
-  <form class="form-container" (ngSubmit)="soumettre()">
+  <form class="form-container" [formGroup]="loginForm" (ngSubmit)="soumettre()">
     <div class="form-line">
       <div class="form__group">
         <label>Email <span class="required">*</span></label>
@@ -13,14 +9,18 @@
           type="email"
           name="email"
           placeholder="email@exemple.com"
-          [(ngModel)]="user.email"
-          [class.form__input--error]="submitted && !user.email.trim()"
+          formControlName="email"
         />
-        @if (submitted && !user.email.trim()) {
-          <small class="erreur">L'email est obligatoire.</small>
-        }
       </div>
     </div>
+    
+    @if (email.touched && email.invalid) { 
+      @if (email.hasError('required')) { 
+        <small class="erreur">L'email est requis.</small> 
+      } @else if (email.hasError('email')) { 
+        <small class="erreur">Le format de l'email est invalide.</small> 
+      } 
+    }
 
     <div class="form-line">
       <div class="form__group">
@@ -29,16 +29,20 @@
           type="password"
           name="password"
           placeholder="Mot de passe"
-          [(ngModel)]="user.password"
-          [class.form__input--error]="submitted && !user.password.trim()"
+          formControlName="password"
         />
-        @if (submitted && !user.password.trim()) {
-          <small class="erreur">Le mot de passe est obligatoire.</small>
-        }
       </div>
     </div>
 
-    <button type="submit" class="btn" [disabled]="!formValid">
+    @if (password.touched && password.invalid) { 
+      @if (password.hasError('required')) { 
+        <small class="erreur">Le mot de passe est requis.</small> 
+      } @else if (password.hasError('minlength')) { 
+        <small class="erreur">6 caractères minimum.</small> 
+      } 
+    } 
+
+    <button type="submit" class="btn" [disabled]="loginForm.invalid">
       Se connecter
     </button>
   </form>
